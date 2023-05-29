@@ -1,0 +1,23 @@
+{
+  "name": "bibleapi",
+  "version": "1.0.0",
+  "description": "A simple Bible API made with node.js, typescript and fastify",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint src --ext .ts --fix"
+  },
+  "author": "Gabriel Licar",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "fastify": "^4.17.0"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
+    "eslint": "^8.41.0",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4"
+  }
+}
