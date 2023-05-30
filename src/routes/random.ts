@@ -28,6 +28,7 @@ export async function randomRoutes(app: FastifyInstance) {
 
     const result = {
       book: book.name,
+      abbrev: book.abbrev,
       chapter,
       verse,
       text: book.chapters[chapter - 1][verse - 1]
