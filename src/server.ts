@@ -1,7 +1,5 @@
-import 'dotenv/config'
-
-import fastify from 'fastify'
 import cors from '@fastify/cors'
+import fastify from 'fastify'
 import { booksRoutes } from './routes/books'
 import { randomRoutes } from './routes/random'
 
