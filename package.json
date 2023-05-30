@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "A simple Bible API made with node.js, typescript and fastify",
   "main": "src/server.ts",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup src",
+    "start": "node dist/server.js"
   },
   "author": "Gabriel Licar",
   "license": "MIT",
@@ -14,6 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
+    "tsup": "^6.7.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   }

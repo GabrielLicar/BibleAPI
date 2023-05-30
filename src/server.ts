@@ -29,9 +29,10 @@ app.register(randomRoutes)
 
 app
   .listen({
+    host: '0.0.0.0',
     port: 3333,
   })
   .then(() => {
-    console.log('🚀 Server listening on port http://localhost:3333')
+    console.log('🚀 Server listening on port 3333')
     console.log('⚔️ Made with 💜 by Gabriel Licar')
   })
