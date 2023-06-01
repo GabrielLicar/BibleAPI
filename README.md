@@ -38,6 +38,12 @@ A API possui os seguintes endpoints:
 -   **``GET`` /:version/books/:abbrev/:chapter**: Retorna um capítulo específico de um livro.
 -   **``GET`` /:version/books/:abbrev/:chapter/:verse**: Retorna um versículo específico de um capítulo.
 
+As versões disponiveis são: 
+
+-  ``acf`` = Almeida Corrigida Fiel
+-  ``aa`` = Almeida Revisada Imprensa Bíblica
+-  ``nvi`` = Nova Versão Internacional
+
 Substitua `:version`, `:abbrev`, `:chapter` e `:verse` pelos valores desejados. Por exemplo, para obter o primeiro versículo do primeiro capítulo do livro de Gênesis na versão ACF, você pode fazer a seguinte requisição:
 
 `GET http://localhost:3333/acf/books/gn/1/1` 
