@@ -7,6 +7,7 @@ interface Book {
   version: string
   abbrev: string
   name: string
+  chapters: string[][]
 }
 
 export async function booksRoutes(app: FastifyInstance) {
@@ -36,6 +37,7 @@ export async function booksRoutes(app: FastifyInstance) {
     return biblia.map((book: Book) => ({
       abbrev: book.abbrev,
       name: book.name,
+      caps: book.chapters.length,
     }))
   })
 
@@ -63,7 +65,7 @@ export async function booksRoutes(app: FastifyInstance) {
       }
     }
 
-    const book = biblia.find((book: any) => book.abbrev === abbrev)
+    const book = biblia.find((book: Book) => book.abbrev === abbrev)
 
     if (!book) {
       reply.code(404).send({ error: 'Livro não encontrado' })
