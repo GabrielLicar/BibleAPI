@@ -1,4 +1,5 @@
 import { FastifyInstance } from 'fastify'
+import { z } from 'zod'
 const aaBiblia = require('../../assets/aa.json')
 const acfBiblia = require('../../assets/acf.json')
 const nviBiblia = require('../../assets/nvi.json')
@@ -159,5 +160,56 @@ export async function booksRoutes(app: FastifyInstance) {
     }
 
     return versiculo
+  })
+
+  // Rota para pesquisar versículos por palavra-chave
+  app.get('/:version', async (request, reply) => {
+    const paramsSchema = z.object({
+      version: z.string()
+    })
+    const querySchema = z.object({
+      search: z.string()
+    })
+
+    const { version } = paramsSchema.parse(request.params)
+    const { search } = querySchema.parse(request.query)
+
+    let biblia: [];
+
+    switch (version) {
+      case 'aa': {
+        biblia = aaBiblia;
+        break;
+      }
+      case 'acf': {
+        biblia = acfBiblia;
+        break;
+      }
+      case 'nvi': {
+        biblia = nviBiblia;
+        break;
+      }
+      default: {
+        reply.code(404).send({ error: 'Versão da bíblia não encontrada' });
+        return;
+      }
+    }
+
+    const results: any = [];
+    biblia.forEach((book: Book) => {
+      book.chapters.forEach((chapter: string[], chapterIndex: number) => {
+        chapter.forEach((verse: string, verseIndex: number) => {
+          if (verse.includes(search)) {
+            results.push({
+              book: book.name,
+              chapter: chapterIndex + 1,
+              verse: verseIndex + 1,
+              text: verse,
+            });
+          }
+        });
+      });
+    });
+    return results;
   })
 }
