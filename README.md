@@ -37,6 +37,7 @@ A API possui os seguintes endpoints:
 -   **``GET`` /:version/books/:abbrev**: Retorna um livro específico da Bíblia.
 -   **``GET`` /:version/books/:abbrev/:chapter**: Retorna um capítulo específico de um livro.
 -   **``GET`` /:version/books/:abbrev/:chapter/:verse**: Retorna um versículo específico de um capítulo.
+-   **``GET`` /:version?search=keyword**: Retorna todos os versículos que contenham a palavra.
 
 As versões disponiveis são: 
 
